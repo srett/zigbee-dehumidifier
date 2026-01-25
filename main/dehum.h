@@ -23,12 +23,16 @@
 #define ESP_ZB_PRIMARY_CHANNEL_MASK     ESP_ZB_TRANSCEIVER_ALL_CHANNELS_MASK /* Zigbee primary channel mask use in the example */
 #define HA_DEHUM_DEVICE_ID   0x002D
 #define DEHUM_MFG_CLUSTER_ID  0xFC10
+#define CUSTOM_MANUFACTURER_CODE 0x1307
 #define CUSTOM_ATTR_TARGET 0x0000
 #define CUSTOM_ATTR_WATER_FULL 0x0001
+#define CUSTOM_ATTR_TIMER_MINUTES 0x0002
+#define CUSTOM_ATTR_SET_TIMER_HOURS 0x0003
+#define CUSTOM_ATTR_COMPRESSOR 0x0004
 
 /* Basic manufacturer information */
-#define MANUFACTURER_NAME "ESPRESSIF"      /* Customized manufacturer name */
-#define MODEL_IDENTIFIER "DEHUMIDIFIER" /* Customized model identifier */
+#define MANUFACTURER_NAME "srett"      /* Customized manufacturer name */
+#define MODEL_IDENTIFIER "KLOJA-DEHUM" /* Customized model identifier */
 
 #define ESP_ZB_ZED_CONFIG()                                         \
     {                                                               \
