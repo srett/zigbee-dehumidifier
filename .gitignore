@@ -1,0 +1,9 @@
+/managed_components/
+/sdkconfig.old
+/sdkconfig.defaults
+/dependencies.lock
+/build
+/cmake-build*
+*.tmp
+.*.swp
+~*
