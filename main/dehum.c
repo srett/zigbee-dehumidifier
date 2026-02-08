@@ -787,7 +787,7 @@ static void mobo_parse_message(void)
     state.temp = (uint16_t) buf_mobo[BYTE_M_TEMPERATURE] * 100;
     if ( buf_mobo[BYTE_STATE_TIMER] & 0xc0 ) {
         // Either on or off timer bit set
-        state.timer_mins_sum = buf_mobo[BYTE_M_TIMER_MINUTES] + (buf_mobo[BYTE_STATE_TIMER] & 0x1f) * 60;
+        state.timer_mins_sum = buf_mobo[BYTE_M_TIMER_MINUTES] + ( (buf_mobo[BYTE_STATE_TIMER] & 0x1f) - 1 ) * 60;
     } else {
         state.timer_mins_sum = 0;
     }
