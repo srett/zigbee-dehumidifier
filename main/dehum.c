@@ -34,16 +34,31 @@
 #define DISP_MSG_LEN 10
 #define MOBO_MSG_LEN 15
 
+// 0x80: Power on
 #define BYTE_STATE_POWER                  2
+// (byt & 0x03) must be 0x02, otherwise mainboard ignores target humidity
+// 0x20: Fanspeed high
 #define BYTE_STATE_FAN_MAGIC              3
+// Currently measured rel humidity
 #define BYTE_M_HUMIDITY                   4
+// Target humidity from 0x00 to 0x0e (see struct)
 #define BYTE_TARGET_HUMIDITY              5
+// Upper two bits = on or off timer, lower bits:
+// D -> M: Hours to initialize timer to
+// M -> D: Hours remaining + 1
 #define BYTE_STATE_TIMER                  6
+// 0x02: Enable wifi pairing
 #define BYTE_D_STATE_PAIRING              7
+// 0x01: Power on
+// 0x80: Compressor on
 #define BYTE_M_STATE_COMPRESSOR_POWER2    7
+// 0x02: Reflect wifi pairing mode, or set 0 to disable LED on display
 #define BYTE_M_STATE_PAIRING              8
+// 0x04: Water tank full/removed
 #define BYTE_M_STATE_WATER                9
+// Ambient temp in °C
 #define BYTE_M_TEMPERATURE               10
+// Remaining time in minutes mod 60 + 1
 #define BYTE_M_TIMER_MINUTES             13
 
 #define BYTE_D_CRC                       (DISP_MSG_LEN - 1)
