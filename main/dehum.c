@@ -1110,6 +1110,8 @@ static void set_fan(bool high)
         buf_mobo[BYTE_STATE_FAN_MAGIC] &= ~0x20;
         buf_display[BYTE_STATE_FAN_MAGIC] &= ~0x20;
     }
+    // In case last message updated the timer
+    buf_display[BYTE_STATE_TIMER] = 0;
     dispatch_to_both();
     xSemaphoreGive( bufferMutex );
 }
@@ -1124,6 +1126,8 @@ static void set_target(uint8_t mode)
     buf_mobo[BYTE_TARGET_HUMIDITY] = mode;
     buf_display[BYTE_STATE_FAN_MAGIC] = (buf_display[BYTE_STATE_FAN_MAGIC] & ~0x01) | 0x02;
     buf_display[BYTE_TARGET_HUMIDITY] = mode;
+    // In case last message updated the timer
+    buf_display[BYTE_STATE_TIMER] = 0;
     dispatch_to_both();
     xSemaphoreGive( bufferMutex );
 }
